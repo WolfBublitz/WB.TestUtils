@@ -1,0 +1,18 @@
+#nullable enable
+static WB.TestUtils.TextScrubbers.DateTimeScrubber.ScrubDateTime(this string! this, string! format, string? replacement = null) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern, bool replaceWithEqualLength = true) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern, string! replacement, bool replaceWithEqualLength = true) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, System.Text.RegularExpressions.Regex! regex, string! groupName, bool replaceWithEqualLength = true) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, System.Text.RegularExpressions.Regex! regex, string? replacement, string! groupName, bool replaceWithEqualLength = true) -> string!
+WB.TestUtils.TextScrubbers.DateTimeScrubber
+WB.TestUtils.TextScrubbers.ReplacementScrubber
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern, bool replaceWithEqualLength) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern, string? replacement) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, string! pattern, string? replacement, bool replaceWithEqualLength) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, System.Text.RegularExpressions.Regex! regex, string! groupName) -> string!
+static WB.TestUtils.TextScrubbers.ReplacementScrubber.Scrub(this string! this, System.Text.RegularExpressions.Regex! regex, string! groupName, bool replaceWithEqualLength) -> string!
+WB.TestUtils.Console.ConsoleOutputGrabber
+WB.TestUtils.Console.ConsoleOutputGrabber.ConsoleOutputGrabber() -> void
+WB.TestUtils.Console.ConsoleOutputGrabber.Output.get -> string?
+WB.TestUtils.Console.ConsoleOutputGrabber.Start() -> System.IDisposable!
