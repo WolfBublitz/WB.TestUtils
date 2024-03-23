@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
-// <copyright file="DateTimeScrubber.cs" company="L0gg3r">
-// Copyright (c) L0gg3r Project
+// <copyright file="DateTimeScrubber.cs" company="WB">
+// Copyright (c) WB Project
 // </copyright>
 // ----------------------------------------------------------------------------
 
