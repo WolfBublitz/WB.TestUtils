@@ -27,6 +27,15 @@ jobs:
       configuration: Release
       project-path: ./tests/ConsoleOutputGrabberTests/src
 
+  DateTimeScrubberTests:
+    name: AppDomainExtensions Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/DateTimeScrubberTests/src
+
   ReplacementScrubberTests:
     name: AppDomainExtensions Tests
     needs: [BuildNugetPackage]
@@ -39,16 +48,9 @@ jobs:
   PublishToGithub:
     name: Publish to Github
     needs: [
-      AppDomainExtensionsTests,
-      AssemblyExtensionsTests,
-      LoggerBuilderTests,
-      LoggerTests,
-      LogLevelTests,
-      LogMessagePipelineTests,
-      LogMessageTests,
-      LogMessageWriterInfoTests,
-      LogSinkBaseTests,
-      ServiceProviderTests,
+      ConsoleOutputGrabberTests,
+      DateTimeScrubberTests,
+      ReplacementScrubberTests,
     ]
     uses: ./.github/workflows/publish-to-github.yml
     with:
