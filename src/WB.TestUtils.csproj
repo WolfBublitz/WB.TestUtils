@@ -8,7 +8,15 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RestoreLockedMode Condition="Exists($(CI))">true</RestoreLockedMode>
     <ProjectsDir>$(ProjectDir)../../</ProjectsDir>
+    <RepositoryUrl>https://github.com/WolfBublitz/WB.TestUtils</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\"/>
+    <None Include="../LICENSE.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="WB.CodeAnalyzer" Version="[1.*-*, 2)">
