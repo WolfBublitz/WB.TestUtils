@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReplacementScrubberTests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplacementScrubberTests", "tests\ReplacementScrubberTests\src\ReplacementScrubberTests.csproj", "{3B082078-7869-4208-B111-280957BE59D0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleOutputGrabberTests", "ConsoleOutputGrabberTests", "{554106CE-D9DD-4CF8-B62B-37F89DCCD15B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleOutputGrabberTests", "tests\ConsoleOutputGrabberTests\src\ConsoleOutputGrabberTests.csproj", "{0960521A-6284-40A2-BA4F-9D5EDC5FCB21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +32,15 @@ Global
 		{3B082078-7869-4208-B111-280957BE59D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B082078-7869-4208-B111-280957BE59D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B082078-7869-4208-B111-280957BE59D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0960521A-6284-40A2-BA4F-9D5EDC5FCB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0960521A-6284-40A2-BA4F-9D5EDC5FCB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0960521A-6284-40A2-BA4F-9D5EDC5FCB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0960521A-6284-40A2-BA4F-9D5EDC5FCB21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{83312F3E-CFB3-4EB1-8A53-AA2A6A0E01B1} = {9298D888-FF88-47E7-AB36-F7C67944629A}
 		{3B082078-7869-4208-B111-280957BE59D0} = {83312F3E-CFB3-4EB1-8A53-AA2A6A0E01B1}
+		{554106CE-D9DD-4CF8-B62B-37F89DCCD15B} = {9298D888-FF88-47E7-AB36-F7C67944629A}
+		{0960521A-6284-40A2-BA4F-9D5EDC5FCB21} = {554106CE-D9DD-4CF8-B62B-37F89DCCD15B}
 	EndGlobalSection
 EndGlobal
