@@ -45,6 +45,15 @@ jobs:
       configuration: Release
       project-path: ./tests/ReplacementScrubberTests/src
 
+  TestConsoleTests:
+    name: AppDomainExtensions Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/TestConsoleTests/src
+
   PublishToGithub:
     name: Publish to Github
     needs: [
