@@ -46,7 +46,7 @@ jobs:
       project-path: ./tests/ReplacementScrubberTests/src
 
   TestConsoleTests:
-    name: AppDomainExtensions Tests
+    name: TestConsoleTests Tests
     needs: [BuildNugetPackage]
     uses: ./.github/workflows/execute-test.yml
     with:
