@@ -28,7 +28,7 @@ jobs:
       project-path: ./tests/ConsoleOutputGrabberTests/src
 
   DateTimeScrubberTests:
-    name: AppDomainExtensions Tests
+    name: DateTimeScrubberTests Tests
     needs: [BuildNugetPackage]
     uses: ./.github/workflows/execute-test.yml
     with:
@@ -37,7 +37,7 @@ jobs:
       project-path: ./tests/DateTimeScrubberTests/src
 
   ReplacementScrubberTests:
-    name: AppDomainExtensions Tests
+    name: ReplacementScrubberTests Tests
     needs: [BuildNugetPackage]
     uses: ./.github/workflows/execute-test.yml
     with:
