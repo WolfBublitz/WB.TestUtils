@@ -27,6 +27,7 @@ namespace WB.TestUtils.Console;
 /// Console.WriteLine(grabber.Output);
 /// </code>
 /// </example>
+[Obsolete("Use TestConsole instead.")]
 public sealed class ConsoleOutputGrabber
 {
     /// <summary>
