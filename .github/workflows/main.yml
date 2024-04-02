@@ -60,6 +60,7 @@ jobs:
       ConsoleOutputGrabberTests,
       DateTimeScrubberTests,
       ReplacementScrubberTests,
+      TestConsoleTests
     ]
     uses: ./.github/workflows/publish-to-github.yml
     with:
