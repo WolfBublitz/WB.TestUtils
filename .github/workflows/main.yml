@@ -19,7 +19,7 @@ jobs:
       configuration: Release
 
   ConsoleOutputGrabberTests:
-    name: AppDomainExtensions Tests
+    name: ConsoleOutputGrabberTests Tests
     needs: [BuildNugetPackage]
     uses: ./.github/workflows/execute-test.yml
     with:
