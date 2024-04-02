@@ -17,6 +17,7 @@ namespace WB.TestUtils.Console;
 /// and should be disposed to stop grabbing the console output.
 /// </remarks>
 /// <seealso cref="IDisposable"/>
+[Obsolete("Use TestConsole instead.")]
 internal sealed class ConsoleOutputDisposer : IDisposable
 {
     // ┌────────────────────────────────────────────────────────────────┐
