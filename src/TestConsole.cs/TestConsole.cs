@@ -5,7 +5,6 @@
 // ----------------------------------------------------------------------------
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +12,8 @@ using System.Linq;
 namespace WB.TestUtils.Console;
 
 /// <summary>
-/// Grabs the output of the console and provides it as a <see cref="Output"/> property.
+/// Represents a test console that can be used to capture the console output and fake the console input
+/// for testing purposes.
 /// </summary>
 /// <example>
 /// The following example demonstrates how to use the <see cref="ConsoleOutputGrabber"/> class to grab the
@@ -21,14 +21,15 @@ namespace WB.TestUtils.Console;
 /// <code>
 /// using System;
 /// using WB.TestUtils.Console;
-/// ConsoleOutputGrabber grabber = new();
 ///
-/// using (IDisposable disposer = grabber.Start())
+/// string recordedOutput;
+///
+/// using (TestConsole testConsole = new())
 /// {
-///    Console.WriteLine("Hello, World!");
-/// }
+///     Console.WriteLine("Hello, World!");
 ///
-/// Console.WriteLine(grabber.Output);
+///     recordedOutput = testConsole.Output;
+/// }
 /// </code>
 /// </example>
 public sealed class TestConsole : IDisposable
