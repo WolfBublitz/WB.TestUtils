@@ -41,7 +41,7 @@ public sealed class TestConsole : IDisposable
 
     private readonly TextWriter defaultOutput;
 
-    private readonly StringReader input;
+    private readonly BlockingTextReader input;
 
     private readonly StringWriter output = new();
 
@@ -63,7 +63,7 @@ public sealed class TestConsole : IDisposable
         defaultInput = System.Console.In;
         defaultOutput = System.Console.Out;
 
-        this.input = new StringReader(string.Join(Environment.NewLine, input));
+        this.input = new BlockingTextReader(input);
 
         System.Console.SetIn(this.input);
         System.Console.SetOut(output);
@@ -85,7 +85,7 @@ public sealed class TestConsole : IDisposable
 
             if (trimmed.Length == 0)
             {
-                return Array.Empty<string>();
+                return [];
             }
             else
             {
@@ -138,6 +138,16 @@ public sealed class TestConsole : IDisposable
 #pragma warning disable CA1822 // Member als statisch markieren
     public void WriteLine(string value) => System.Console.WriteLine(value);
 #pragma warning restore CA1822 // Member als statisch markieren
+
+    /// <summary>
+    /// Adds a line of input to the console.
+    /// </summary>
+    /// <remarks>
+    /// This method adds a line of input to the console that can be consumed by
+    /// the <see cref="ReadLine"/> method.
+    /// </remarks>
+    /// <param name="line">The line to add.</param>
+    public void AddInputLine(string line) => input.AddLine(line);
 
     /// <inheritdoc/>
     public void Dispose()

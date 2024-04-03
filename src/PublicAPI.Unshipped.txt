@@ -1,4 +1,5 @@
 WB.TestUtils.Console.TestConsole
+WB.TestUtils.Console.TestConsole.AddInputLine(string! line) -> void
 WB.TestUtils.Console.TestConsole.Dispose() -> void
 WB.TestUtils.Console.TestConsole.FirstLine.get -> string?
 WB.TestUtils.Console.TestConsole.LastLine.get -> string?
