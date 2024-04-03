@@ -52,21 +52,18 @@ public sealed class TestConsole : IDisposable
     /// <summary>
     /// Initializes a new instance of the <see cref="TestConsole"/> class.
     /// </summary>
-    public TestConsole()
-        : this(string.Empty)
-    {
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TestConsole"/> class.
-    /// </summary>
+    /// <remarks>
+    /// This constructor initializes a new instance of the <see cref="TestConsole"/> with
+    /// optional input. Each string in the <paramref name="input"/> array is treated as a
+    /// separate line of input.
+    /// </remarks>
     /// <param name="input">The input to provide to the console.</param>
-    public TestConsole(string input)
+    public TestConsole(params string[] input)
     {
         defaultInput = System.Console.In;
         defaultOutput = System.Console.Out;
 
-        this.input = new StringReader(input);
+        this.input = new StringReader(string.Join(Environment.NewLine, input));
 
         System.Console.SetIn(this.input);
         System.Console.SetOut(output);
