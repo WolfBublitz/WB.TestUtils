@@ -8,12 +8,6 @@
         "resolved": "3.3.4",
         "contentHash": "kNLTfXtXUWDHVt5iaPkkiPuyHYlMgLI6SOFT4w88bfeI2vqSeGgHunFkdvlaCM8RDfcY0t2+jnesQtidRJJ/DA=="
       },
-      "MinVer": {
-        "type": "Direct",
-        "requested": "[4.*, 5.0.0)",
-        "resolved": "4.3.0",
-        "contentHash": "YNVAW3loCFW4kTwensApaZUl+7xREK75QQNOFSbsbXx2sCSm9/IHBjUHsJGn3u0UA5r/sAqrdYBNUlOFfLhUrA=="
-      },
       "WB.CodeAnalyzer": {
         "type": "Direct",
         "requested": "[1.*-*, 2.0.0)",

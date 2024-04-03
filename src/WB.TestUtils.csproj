@@ -24,10 +24,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MinVer" Version="[4.*, 5)">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
@@ -39,10 +35,6 @@
 
   <ItemGroup Condition="'$(UseProjectReferences)' == 'true'">
   </ItemGroup>
-
-  <PropertyGroup>
-    <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
-  </PropertyGroup>
 
   <Target Name="Print Build Mode" BeforeTargets="BeforeBuild">
     <Message Importance="High" Text="Building $(ProjectName) in $(Configuration) mode for $(TargetFramework) with PROJECT references" Condition="'$(UseProjectReferences)' == 'true'" />
