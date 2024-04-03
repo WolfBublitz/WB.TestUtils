@@ -1,0 +1,11 @@
+WB.TestUtils.Console.TestConsole
+WB.TestUtils.Console.TestConsole.Dispose() -> void
+WB.TestUtils.Console.TestConsole.FirstLine.get -> string?
+WB.TestUtils.Console.TestConsole.LastLine.get -> string?
+WB.TestUtils.Console.TestConsole.LineAt(int index) -> string!
+WB.TestUtils.Console.TestConsole.Lines.get -> System.Collections.Generic.IEnumerable<string!>!
+WB.TestUtils.Console.TestConsole.Output.get -> string!
+WB.TestUtils.Console.TestConsole.ReadLine() -> string?
+WB.TestUtils.Console.TestConsole.TestConsole(params string![]! input) -> void
+WB.TestUtils.Console.TestConsole.Write(string! value) -> void
+WB.TestUtils.Console.TestConsole.WriteLine(string! value) -> void

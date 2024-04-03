@@ -1,0 +1,68 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: "*"
+    tags: "*"
+  pull_request:
+    branches: "*"
+  release:
+    types:
+      - created
+
+jobs:
+  BuildNugetPackage:
+    name: Build Nuget Package
+    uses: ./.github/workflows/build-nuget-package.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+
+  ConsoleOutputGrabberTests:
+    name: ConsoleOutputGrabberTests Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/ConsoleOutputGrabberTests/src
+
+  DateTimeScrubberTests:
+    name: DateTimeScrubberTests Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/DateTimeScrubberTests/src
+
+  ReplacementScrubberTests:
+    name: ReplacementScrubberTests Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/ReplacementScrubberTests/src
+
+  TestConsoleTests:
+    name: TestConsoleTests Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/TestConsoleTests/src
+
+  PublishToGithub:
+    name: Publish to Github
+    needs: [
+      ConsoleOutputGrabberTests,
+      DateTimeScrubberTests,
+      ReplacementScrubberTests,
+      TestConsoleTests
+    ]
+    uses: ./.github/workflows/publish-to-github.yml
+    with:
+      package-path: ./**/*.nupkg
+    if: github.event_name == 'release' && github.event.action == 'created'

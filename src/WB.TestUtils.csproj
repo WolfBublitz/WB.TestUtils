@@ -8,14 +8,19 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RestoreLockedMode Condition="Exists($(CI))">true</RestoreLockedMode>
     <ProjectsDir>$(ProjectDir)../../</ProjectsDir>
+    <RepositoryUrl>https://github.com/WolfBublitz/WB.TestUtils</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\"/>
+    <None Include="../LICENSE.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WB.CodeAnalyzer" Version="[1.*-*, 2)">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="MinVer" Version="[4.*, 5)">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -30,10 +35,6 @@
 
   <ItemGroup Condition="'$(UseProjectReferences)' == 'true'">
   </ItemGroup>
-
-  <PropertyGroup>
-    <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
-  </PropertyGroup>
 
   <Target Name="Print Build Mode" BeforeTargets="BeforeBuild">
     <Message Importance="High" Text="Building $(ProjectName) in $(Configuration) mode for $(TargetFramework) with PROJECT references" Condition="'$(UseProjectReferences)' == 'true'" />

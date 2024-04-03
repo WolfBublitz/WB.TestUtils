@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
-// <copyright file="ReplacementScrubber.cs" company="L0gg3r">
-// Copyright (c) L0gg3r Project
+// <copyright file="ReplacementScrubber.cs" company="WB">
+// Copyright (c) WB Project
 // </copyright>
 // ----------------------------------------------------------------------------
 
