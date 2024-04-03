@@ -14,5 +14,5 @@ A set of extension methods for scrubbing dynamic data from strings. Currently th
 ## Installation
 
 ```bash
-dotnet add package WB.TestUtils 
+dotnet add package WB.TestUtils
 ```

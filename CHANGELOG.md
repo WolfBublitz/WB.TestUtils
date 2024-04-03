@@ -1,5 +1,11 @@
 # WB.TestUtils
 
+## 1.2.0
+
+### Features
+
+- `TestConsole` doesnow accept a list of input lines to simulate user input.
+
 ## 1.1.0
 
 ### Features
