@@ -1,5 +1,11 @@
 # WB.TestUtils
 
+## 1.3.0
+
+### Features
+
+- `TestConsole.ReadLine` does now block until a line is available.
+
 ## 1.2.0
 
 ### Features
