@@ -23,13 +23,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConsoleTests", "TestCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleTests", "tests\TestConsoleTests\src\TestConsoleTests.csproj", "{49F9EDC2-57B0-451E-BA0D-CB74C8082E54}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestDataObjectAttributeTests", "TestDataObjectAttributeTests", "{DE3BF08A-F372-4101-9D4D-B79EAEFB0C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataObjectAttributeTests", "tests\TestDataAttributeTests\src\TestDataObjectAttributeTests.csproj", "{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{727C7F60-EF90-48AB-908D-A4B35A9F4368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,6 +53,13 @@ Global
 		{49F9EDC2-57B0-451E-BA0D-CB74C8082E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F9EDC2-57B0-451E-BA0D-CB74C8082E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49F9EDC2-57B0-451E-BA0D-CB74C8082E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{83312F3E-CFB3-4EB1-8A53-AA2A6A0E01B1} = {9298D888-FF88-47E7-AB36-F7C67944629A}
@@ -62,5 +70,7 @@ Global
 		{9C37BF92-345A-4E66-9759-4F64451C4251} = {63C24D97-FA9D-48FC-A27E-7ED5796B7B8B}
 		{9F68A30A-0655-4C62-BE0E-194A4F46FE7D} = {9298D888-FF88-47E7-AB36-F7C67944629A}
 		{49F9EDC2-57B0-451E-BA0D-CB74C8082E54} = {9F68A30A-0655-4C62-BE0E-194A4F46FE7D}
+		{DE3BF08A-F372-4101-9D4D-B79EAEFB0C17} = {9298D888-FF88-47E7-AB36-F7C67944629A}
+		{28EBA2DF-1B26-4F0A-800C-6DDCF61F7F2E} = {DE3BF08A-F372-4101-9D4D-B79EAEFB0C17}
 	EndGlobalSection
 EndGlobal

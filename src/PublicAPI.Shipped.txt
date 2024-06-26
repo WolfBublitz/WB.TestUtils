@@ -13,3 +13,21 @@ WB.TestUtils.Console.ConsoleOutputGrabber.Output.get -> string?
 WB.TestUtils.Console.ConsoleOutputGrabber.Start() -> System.IDisposable!
 WB.TestUtils.TextScrubbers.DateTimeScrubber
 WB.TestUtils.TextScrubbers.ReplacementScrubber
+WB.TestUtils.Console.TestConsole
+WB.TestUtils.Console.TestConsole.AddInputLine(string! line) -> void
+WB.TestUtils.Console.TestConsole.Dispose() -> void
+WB.TestUtils.Console.TestConsole.FirstLine.get -> string?
+WB.TestUtils.Console.TestConsole.LastLine.get -> string?
+WB.TestUtils.Console.TestConsole.LineAt(int index) -> string!
+WB.TestUtils.Console.TestConsole.Lines.get -> System.Collections.Generic.IEnumerable<string!>!
+WB.TestUtils.Console.TestConsole.Output.get -> string!
+WB.TestUtils.Console.TestConsole.ReadLine() -> string?
+WB.TestUtils.Console.TestConsole.TestConsole(params string![]! input) -> void
+WB.TestUtils.Console.TestConsole.Write(string! value) -> void
+WB.TestUtils.Console.TestConsole.WriteLine(string! value) -> void
+WB.TestUtils.TestDataObjectAttribute
+WB.TestUtils.TestDataObjectAttribute.DisplayName.get -> string?
+WB.TestUtils.TestDataObjectAttribute.DisplayName.init -> void
+WB.TestUtils.TestDataObjectAttribute.GetData(System.Reflection.MethodInfo! methodInfo) -> System.Collections.Generic.IEnumerable<object?[]!>!
+WB.TestUtils.TestDataObjectAttribute.GetDisplayName(System.Reflection.MethodInfo! methodInfo, object?[]? data) -> string?
+WB.TestUtils.TestDataObjectAttribute.TestDataObjectAttribute() -> void
