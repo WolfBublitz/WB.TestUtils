@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using WB.TestUtils;
 
@@ -31,19 +32,45 @@ public class TheDisplayNameProperty
         displayName.Should().Be(testDataObjectAttribute.DisplayName);
     }
 
-    [DataTestMethod]
-    [DataRow(nameof(TestMethodWithoutParameter), "TestMethodWithoutParameter()")]
-    [DataRow(nameof(TestMethodWithParameters), "TestMethodWithParameters(42, Hello World, False)")]
-    public void ShouldBeTheNameOfTheTestMethodFollowedByTheValuesOfTheTestDataParameters(string methodName, string expectedDisplayName)
+    [TestMethod]
+    public void ShouldReturnTheMethodNameIfDataIsNull()
     {
         // Arrange
-        MethodInfo methodInfo = typeof(TheDisplayNameProperty).GetMethod(methodName)!;
-        TestDataObjectAttribute testData = new();
+        MethodInfo methodInfo = typeof(TheDisplayNameProperty).GetMethod(nameof(TestMethodWithoutParameter))!;
+        TestDataObjectAttribute testDataObjectAttribute = new();
 
         // Act
-        string? displayName = testData.GetDisplayName(methodInfo, [42, "Hello World", false]);
+        string? displayName = testDataObjectAttribute.GetDisplayName(methodInfo, null);
 
         // Assert
-        displayName.Should().Be(expectedDisplayName);
+        displayName.Should().Be(methodInfo.Name + "()");
+    }
+
+    [TestMethod]
+    public void ShouldReturnTheMethodNameIfDataIsEmpty()
+    {
+        // Arrange
+        MethodInfo methodInfo = typeof(TheDisplayNameProperty).GetMethod(nameof(TestMethodWithoutParameter))!;
+        TestDataObjectAttribute testDataObjectAttribute = new();
+
+        // Act
+        string? displayName = testDataObjectAttribute.GetDisplayName(methodInfo, Array.Empty<object>());
+
+        // Assert
+        displayName.Should().Be(methodInfo.Name + "()");
+    }
+
+    [TestMethod]
+    public void ShouldReturnTheMethodNameWithParameters()
+    {
+        // Arrange
+        MethodInfo methodInfo = typeof(TheDisplayNameProperty).GetMethod(nameof(TestMethodWithoutParameter))!;
+        TestDataObjectAttribute testDataObjectAttribute = new();
+
+        // Act
+        string? displayName = testDataObjectAttribute.GetDisplayName(methodInfo, [42, "Hello World!", true]);
+
+        // Assert
+        displayName.Should().Be(methodInfo.Name + "(42, Hello World!, True)");
     }
 }

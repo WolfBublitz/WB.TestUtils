@@ -10,7 +10,7 @@ namespace WB.TestUtils;
 /// A data source attribute for MSTest that provides test data from the properties
 /// of the decorated class.
 /// </summary>
-[AttributeUsage(AttributeTargets.Method)]
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 #pragma warning disable CA1813 // Nicht versiegelte Attribute vermeiden
 public class TestDataObjectAttribute : Attribute, ITestDataSource
 #pragma warning restore CA1813 // Nicht versiegelte Attribute vermeiden
@@ -41,25 +41,32 @@ public class TestDataObjectAttribute : Attribute, ITestDataSource
 
         ParameterInfo[] parameterInfos = methodInfo.GetParameters();
 
-        PropertyInfo[] propertyInfos = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-        object?[] parameters = new object[parameterInfos.Length];
-
-        for (int i = 0; i < parameterInfos.Length; i++)
+        if (parameterInfos.Length == 1 && parameterInfos[0].ParameterType == GetType())
         {
-            PropertyInfo? propertyInfo = propertyInfos.FirstOrDefault(p => string.Equals(p.Name, parameterInfos[i].Name, StringComparison.OrdinalIgnoreCase));
-
-            if (propertyInfo is not null)
-            {
-                parameters[i] = propertyInfo.GetValue(this);
-            }
-            else
-            {
-                parameters[i] = null;
-            }
+            yield return [this];
         }
+        else
+        {
+            PropertyInfo[] propertyInfos = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-        yield return parameters;
+            object?[] parameters = new object[parameterInfos.Length];
+
+            for (int i = 0; i < parameterInfos.Length; i++)
+            {
+                PropertyInfo? propertyInfo = propertyInfos.FirstOrDefault(p => string.Equals(p.Name, parameterInfos[i].Name, StringComparison.OrdinalIgnoreCase));
+
+                if (propertyInfo is not null)
+                {
+                    parameters[i] = propertyInfo.GetValue(this);
+                }
+                else
+                {
+                    parameters[i] = null;
+                }
+            }
+
+            yield return parameters;
+        }
     }
 
     /// <inheritdoc/>
@@ -75,20 +82,25 @@ public class TestDataObjectAttribute : Attribute, ITestDataSource
         {
             if (data is null)
             {
-                return methodInfo.Name;
+                return $"{methodInfo.Name}()";
             }
             else
             {
-                ParameterInfo[] parameterInfos = methodInfo.GetParameters();
-                string[] parameters = new string[parameterInfos.Length];
-                int max = Math.Min(parameterInfos.Length, parameters.Length);
+                string[] parameters = new string[data.Length];
 
-                for (int i = 0; i < max; i++)
+                for (int i = 0; i < data.Length; i++)
                 {
                     parameters[i] = data[i]?.ToString() ?? "null";
                 }
 
-                return $"{methodInfo.Name}({string.Join(", ", parameters)})";
+                if (parameters.Length == 0)
+                {
+                    return $"{methodInfo.Name}()";
+                }
+                else
+                {
+                    return $"{methodInfo.Name}({string.Join(", ", parameters)})";
+                }
             }
         }
     }

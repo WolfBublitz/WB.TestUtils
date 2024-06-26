@@ -4,7 +4,7 @@ using WB.TestUtils;
 
 namespace TestDataAttributeTests.MethodTests.GetDataMethodTests;
 
-public class CompleteTestDataAttribute : TestDataObjectAttribute
+public class TestDataAttribute : TestDataObjectAttribute
 {
     public int IntValue { get; set; } = 42;
 
@@ -21,16 +21,34 @@ public class EmptyTestDataAttribute : TestDataObjectAttribute
 [TestClass]
 public class TheDataMethod
 {
+    public void TestMethodWithTestDataObject(TestDataAttribute _)
+    {
+    }
+
     public void TestMethod(int intValue, string stringValue, object objectValue)
     {
     }
 
     [TestMethod]
-    public void ShouldReturnTheValuesFromTheSameNamedProperty()
+    public void ShouldReturnTheTestDataObject()
+    {
+        // Arrange
+        MethodInfo methodInfo = typeof(TheDataMethod).GetMethod(nameof(TestMethodWithTestDataObject))!;
+        TestDataAttribute testData = new();
+
+        // Act
+        object?[] data = testData.GetData(methodInfo).First();
+
+        // Assert
+        data.Should().BeEquivalentTo(new object?[] { testData });
+    }
+
+    [TestMethod]
+    public void ShouldReturnAnArrayWithThePropertyValues()
     {
         // Arrange
         MethodInfo methodInfo = typeof(TheDataMethod).GetMethod(nameof(TestMethod))!;
-        CompleteTestDataAttribute testData = new();
+        TestDataAttribute testData = new();
 
         // Act
         object?[] data = testData.GetData(methodInfo).First();

@@ -2,11 +2,7 @@ using WB.TestUtils;
 
 namespace TestDataAttributeTests.AttributeTests;
 
-internal class NotTestDataAttribute : TestDataObjectAttribute
-{
-}
-
-internal class SomeTestDataAttribute : TestDataObjectAttribute
+public class TestData : TestDataObjectAttribute
 {
     public int IntValue { get; set; } = 42;
 
@@ -19,18 +15,18 @@ internal class SomeTestDataAttribute : TestDataObjectAttribute
 public class TheTestDataAttribute
 {
     [DataTestMethod]
-    [NotTestData]
-    public void ShouldProvideDefaultValuesIfParametersAreNotSet(int intValue, string stringValue, object objectValue)
+    [TestData]
+    public void CanBeInjectedDirectory(TestData testData)
     {
         // Assert
-        intValue.Should().Be(0);
-        stringValue.Should().BeNull();
-        objectValue.Should().BeNull();
+        testData.IntValue.Should().Be(42);
+        testData.StringValue.Should().Be("Hello, World!");
+        testData.ObjectValue.Should().NotBeNull();
     }
 
     [DataTestMethod]
-    [SomeTestData]
-    public void ShouldProvideTestParametersFromProperties(int intValue, string stringValue, object objectValue)
+    [TestData]
+    public void ShouldProvideEachPropertyAsTestParameter(int intValue, string stringValue, object objectValue)
     {
         // Assert
         intValue.Should().Be(42);
