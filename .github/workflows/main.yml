@@ -53,6 +53,14 @@ jobs:
       dotnet-version: 8.0.x
       configuration: Release
       project-path: ./tests/TestConsoleTests/src
+  TestDataObjectAttributeTests:
+    name: TestConsoleTests Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/TestDataObjectAttributeTests/src
 
   PublishToGithub:
     name: Publish to Github
@@ -60,7 +68,8 @@ jobs:
       ConsoleOutputGrabberTests,
       DateTimeScrubberTests,
       ReplacementScrubberTests,
-      TestConsoleTests
+      TestConsoleTests,
+      TestDataObjectAttributeTests
     ]
     uses: ./.github/workflows/publish-to-github.yml
     with:

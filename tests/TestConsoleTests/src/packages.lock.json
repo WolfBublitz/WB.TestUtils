@@ -236,7 +236,10 @@
         }
       },
       "wb.testutils": {
-        "type": "Project"
+        "type": "Project",
+        "dependencies": {
+          "MSTest.TestFramework": "[3.2.2, )"
+        }
       }
     }
   }

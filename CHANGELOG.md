@@ -1,5 +1,11 @@
 # WB.TestUtils
 
+## 1.4.0
+
+### Features
+
+- Added `TestDataObjectAttribute` for writing parameterized tests with test data objects.
+
 ## 1.3.0
 
 ### Features

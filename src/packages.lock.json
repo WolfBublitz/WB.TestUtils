@@ -8,6 +8,12 @@
         "resolved": "3.3.4",
         "contentHash": "kNLTfXtXUWDHVt5iaPkkiPuyHYlMgLI6SOFT4w88bfeI2vqSeGgHunFkdvlaCM8RDfcY0t2+jnesQtidRJJ/DA=="
       },
+      "MSTest.TestFramework": {
+        "type": "Direct",
+        "requested": "[3.2.2, )",
+        "resolved": "3.2.2",
+        "contentHash": "t3o8wfuMvjq1ETxsX6qBIOJMpnNpRoBjf2+0ZEKURSH+xHnpLM7yojNkLgJbir7vQGzQh7JaAUBO1MkszBvVrw=="
+      },
       "WB.CodeAnalyzer": {
         "type": "Direct",
         "requested": "[1.*-*, 2.0.0)",
