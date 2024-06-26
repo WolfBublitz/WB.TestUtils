@@ -63,3 +63,36 @@ using (TestConsole console = new(input))
 response1.Should().Be("yes");
 response2.Should().Be("no");
 ```
+
+### TestDataObjectAttribute
+
+The `TestDataObjectAttribute` can be used to define test data objects for parameterized tests. The test data is defined as public properties of the attribute. The property names must match the parameter names of the test method (case-insensitive). The test data is passed to the test method as arguments. The following example demonstrates the useage:
+
+```csharp
+using WB.TestUtils;
+
+public sealed class MyTestDataAttribute : TestDataObjectAttribute
+{
+    public int input { get; set; }
+
+    public int output { get; set; }
+}
+
+[TestClass]
+public class Tests
+{
+    [DataTestMethod]
+    [MyTestData(input = 1, output = 2)]
+    public void TheDoubleMethodShallDoubleTheInputValue(int input, int output)
+    {
+        // Arrange
+        ObjectUnderTest objectUnderTest = new();
+
+        // Act
+        int result = objectUnderTest.Double(1);
+
+        // Assert
+        Assert.AreEqual(output, result);
+    }
+}
+```
