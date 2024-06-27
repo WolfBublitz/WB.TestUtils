@@ -1,5 +1,9 @@
 # WB.TestUtils
 
+[![NuGet Downloads](https://img.shields.io/nuget/dt/WB.TestUtils?logo=NuGet&label=downloads)](https://www.nuget.org/packages/WB.TestUtils)
+[![NuGet Version](https://img.shields.io/nuget/v/WB.TestUtils?logo=NuGet&label=version)](https://www.nuget.org/packages/WB.TestUtils)
+
+
 A collection of utilities for writing tests in C#.
 
 ## Installation
